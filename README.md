@@ -1,3 +1,30 @@
+# UN WORK with this test
+
+void test()
+{
+	unsigned char buf[10] = {0x50,0x00,0x50,0x00,0x50,0x00,0x50,0x00,0x50,0x00};   // return ascii
+	//unsigned char buf[10] = {0xBA,0xAB,0xD4,0xF3,0xBA,0xAB,0xD4,0xF3,0xBA,0xAB}; // 韩泽韩泽韩 // return null
+
+	csd_t handle  = csd_open();
+
+	if (handle != NULL)
+	{
+		int rlt = csd_consider(handle, (const char *)buf, 10);
+
+		_tprintf(_T("Buf.rlt:%d\n"), rlt);
+
+		if (rlt > 0)
+		{
+		 const char * p_set = csd_close(handle);
+		 _tprintf(_T("charset:%S\n"), p_set);
+		}
+	}
+}
+
+
+
+
+
 # Universal Character Set Detector (UCSD)
 
 A library exposing a C interface and dependency-free interface to the Mozilla C++ UCSD library.
